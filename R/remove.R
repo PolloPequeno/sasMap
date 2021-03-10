@@ -64,7 +64,7 @@ removeAllComments <- function(sasCode){
 #'
 #' @param sasCode Character string containing SAS code
 #' @importFrom stringr str_replace_all
-#' @importFrom stringr str_trim
+#' @importFrom stringr str_squish
 #' @export
 #' @examples 
 #' sasFile <- system.file('examples/SAScode/Macros/Util2.SAS', package='sasMap')
