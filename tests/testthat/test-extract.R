@@ -26,3 +26,15 @@ test_that("Extracts procs", {
   
 })
 
+##### Testing extract librefs ####
+
+test_that("Extracts Libref definitions", {
+  system.file("extdata/librefs.SAS", package = "sasMap") %>%
+    loadSAS() %>%
+    extractLibrefs() %>%
+    length() %>%
+    expect_equal(8)
+})
+
+
+  

@@ -108,25 +108,20 @@ extractProcs <-  function(sasCode){
 }
 
 
-#' Extract Librefs from vector of SAS code
-#'
-#' @param sasCode 
-#'
-#' @return
-#' @export
-#'
-#' @examples
-extractLibrefs <- function(sasCode){
+extractLibrefs <- function(sasCode) {
   
-  # Remove comments from code
-  sasCode <- removeAllComments(sasCode)
-  
-  # Split sasCode into statements
-  sasVec <- splitIntoStatements(sasCode)
-  
-  # Remove whitespace
-  sasVec <- removeWhitespaceCharacters(sasVec)
-  
-  #librefs <-
-  
+  libname <- "((?<=libname\\s)\\w*)"
+  dots <- "((?<=\\s)\\w{1,8}(?=\\.))"
+
+  pattern <- stringr::str_c(c(libname, dots), collapse = "|")
+
+
+  sasVec <-
+    removeAllComments(sasCode) %>%
+    splitIntoStatements() %>%
+    removeWhitespaceCharacters() %>%
+    stringr::str_extract_all(pattern) %>%
+    unlist()
 }
+
+
