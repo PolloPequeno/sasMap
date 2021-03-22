@@ -108,6 +108,25 @@ extractProcs <-  function(sasCode){
 }
 
 
+#' @title ExtractLibrefs
+#' @description self explanitory
+#' @param sasCode PARAM_DESCRIPTION
+#' @return vector of char, where each element is a libref
+#' @details DETAILS
+#' @examples 
+#' \dontrun{
+#' if(interactive()){
+#'  #EXAMPLE1
+#'  }
+#' }
+#' @seealso 
+#'  \code{\link[stringr]{str_c}},\code{\link[stringr]{str_extract}}
+#' @rdname extractLibrefs
+#' @export 
+#' @importFrom stringr str_c str_extract_all
+#' @importFrom magrittr %>%
+
+
 extractLibrefs <- function(sasCode) {
   
   libname <- "((?<=libname\\s)\\w*)"
